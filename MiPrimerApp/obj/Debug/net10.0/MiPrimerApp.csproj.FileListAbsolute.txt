@@ -1,0 +1,14 @@
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/bin/Debug/net10.0/MiPrimerApp
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/bin/Debug/net10.0/MiPrimerApp.deps.json
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/bin/Debug/net10.0/MiPrimerApp.runtimeconfig.json
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/bin/Debug/net10.0/MiPrimerApp.dll
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/bin/Debug/net10.0/MiPrimerApp.pdb
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.AssemblyInfoInputs.cache
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.AssemblyInfo.cs
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.csproj.CoreCompileInputs.cache
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.dll
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/refint/MiPrimerApp.dll
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.pdb
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.genruntimeconfig.cache
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/ref/MiPrimerApp.dll
