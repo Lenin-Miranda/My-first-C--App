@@ -19,19 +19,17 @@ internal class Program
         Console.WriteLine($"Te gusta: {leGustaProgramar}");
         Console.WriteLine($"Tu inicial es: {inicial}");
         Console.WriteLine($"Mi primer {holaMundo}");
-
+        Console.WriteLine($"Tu nombre es {nombre}");
+        Console.WriteLine($"Tu edad es: {edad}");
         const int diasDeLaSemana = 7;
         int numeroA = 10;
         int numeroB = 3;
 
-        Console.WriteLine("2. Operadores");
-        Console.WriteLine($"Constante dias de la semana: {diasDeLaSemana}");
-        Console.WriteLine($"{numeroA} + {numeroB} = {numeroA + numeroB}");
-        Console.WriteLine($"{numeroA} - {numeroB} = {numeroA - numeroB}");
-        Console.WriteLine($"{numeroA} * {numeroB} = {numeroA * numeroB}");
-        Console.WriteLine($"{numeroA} / {numeroB} = {numeroA / numeroB}");
-        Console.WriteLine($"{numeroA} % {numeroB} = {numeroA % numeroB}");
-        Console.WriteLine();
+        // Ejercicio: muestra aqui los operadores con Console.WriteLine(...).
+        Console.WriteLine($"Suma: {numeroA} + {numeroB} = {numeroA + numeroB}");
+        Console.WriteLine($"Resta: {numeroA} - {numeroB} = {numeroA - numeroB}");
+        Console.WriteLine($"Multiplicacion: {numeroA} * {numeroB} = {numeroA * numeroB}");
+        Console.WriteLine($"Division: {numeroA} / {numeroB} = {numeroA / numeroB}");
 
         Console.WriteLine("3. Condicional if");
         if (edad >= 18)
