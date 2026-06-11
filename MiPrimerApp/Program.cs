@@ -4,56 +4,101 @@ internal class Program
 {
     private static void Main()
     {
-        Console.WriteLine("Hola, bienvenido a tu primera app en C#.");
-        Console.Write("Como te llamas? ");
-        string? nombre = Console.ReadLine();
-
-        if (string.IsNullOrWhiteSpace(nombre))
-        {
-            nombre = "estudiante";
-        }
-
-        int numeroFavorito = PedirNumero("Escribe un numero entero mayor que 0: ");
-
+        Console.WriteLine("LECCION 1: Sintaxis basica de C#");
         Console.WriteLine();
-        Console.WriteLine($"Mucho gusto, {nombre}.");
-        Console.WriteLine($"El cuadrado de {numeroFavorito} es {numeroFavorito * numeroFavorito}.");
 
-        if (numeroFavorito % 2 == 0)
+        string nombre = "Juan";
+        int edad = 20;
+        double altura = 1.72;
+        bool leGustaProgramar = true;
+        char inicial = 'J';
+        string holaMundo = "Hola mundo";
+
+        // Ejercicio: muestra aqui las variables usando Console.WriteLine(...).
+        Console.WriteLine($"Tu altura es {altura}");
+        Console.WriteLine($"Te gusta: {leGustaProgramar}");
+        Console.WriteLine($"Tu inicial es: {inicial}");
+        Console.WriteLine($"Mi primer {holaMundo}");
+
+        const int diasDeLaSemana = 7;
+        int numeroA = 10;
+        int numeroB = 3;
+
+        Console.WriteLine("2. Operadores");
+        Console.WriteLine($"Constante dias de la semana: {diasDeLaSemana}");
+        Console.WriteLine($"{numeroA} + {numeroB} = {numeroA + numeroB}");
+        Console.WriteLine($"{numeroA} - {numeroB} = {numeroA - numeroB}");
+        Console.WriteLine($"{numeroA} * {numeroB} = {numeroA * numeroB}");
+        Console.WriteLine($"{numeroA} / {numeroB} = {numeroA / numeroB}");
+        Console.WriteLine($"{numeroA} % {numeroB} = {numeroA % numeroB}");
+        Console.WriteLine();
+
+        Console.WriteLine("3. Condicional if");
+        if (edad >= 18)
         {
-            Console.WriteLine("Tu numero es par.");
+            Console.WriteLine("Eres mayor de edad.");
         }
         else
         {
-            Console.WriteLine("Tu numero es impar.");
+            Console.WriteLine("Eres menor de edad.");
         }
 
         Console.WriteLine();
-        Console.WriteLine($"Vamos a contar del 1 al {numeroFavorito}:");
+        Console.WriteLine("4. Condicional switch");
+        string colorFavorito = "azul";
 
-        for (int i = 1; i <= numeroFavorito; i++)
+        switch (colorFavorito)
         {
-            Console.WriteLine(i);
+            case "azul":
+                Console.WriteLine("Tu color favorito es azul.");
+                break;
+            case "rojo":
+                Console.WriteLine("Tu color favorito es rojo.");
+                break;
+            default:
+                Console.WriteLine("Tienes otro color favorito.");
+                break;
         }
 
         Console.WriteLine();
-        Console.WriteLine("Presiona Enter para salir.");
-        Console.ReadLine();
+        Console.WriteLine("5. Bucle for");
+        for (int i = 1; i <= 3; i++)
+        {
+            Console.WriteLine($"Vuelta numero {i}");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("6. Bucle while");
+        int contador = 1;
+
+        while (contador <= 3)
+        {
+            Console.WriteLine($"Contador actual: {contador}");
+            contador++;
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("7. Metodos");
+        int resultadoSuma = Sumar(4, 6);
+        string saludo = CrearSaludo(nombre);
+
+        Console.WriteLine($"4 + 6 = {resultadoSuma}");
+        Console.WriteLine(saludo);
+        Console.WriteLine();
+
+        Console.WriteLine("Practica sugerida:");
+        Console.WriteLine("- Cambia los valores de las variables.");
+        Console.WriteLine("- Agrega una multiplicacion nueva.");
+        Console.WriteLine("- Crea tu propio metodo llamado Restar.");
     }
 
-    private static int PedirNumero(string mensaje)
+    private static int Sumar(int numero1, int numero2)
     {
-        while (true)
-        {
-            Console.Write(mensaje);
-            string? entrada = Console.ReadLine();
+        return numero1 + numero2;
+    }
 
-            if (int.TryParse(entrada, out int numero) && numero > 0)
-            {
-                return numero;
-            }
-
-            Console.WriteLine("Entrada no valida. Intenta de nuevo.");
-        }
+    private static string CrearSaludo(string nombre)
+    {
+        return $"Hola, {nombre}. Bienvenido a C#.";
     }
 }

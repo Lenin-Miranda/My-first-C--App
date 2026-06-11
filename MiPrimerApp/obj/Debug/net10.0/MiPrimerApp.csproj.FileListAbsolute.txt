@@ -12,3 +12,4 @@
 /Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.pdb
 /Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.genruntimeconfig.cache
 /Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/ref/MiPrimerApp.dll
+/Users/topwireless2020/code/C#and.Net app/MiPrimerApp/obj/Debug/net10.0/MiPrimerApp.sourcelink.json
