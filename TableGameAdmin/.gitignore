@@ -1,0 +1,13 @@
+# Build output
+bin/
+obj/
+
+# SQLite database (se regenera con el seed)
+*.db
+*.db-shm
+*.db-wal
+
+# IDE
+.vs/
+.idea/
+*.user

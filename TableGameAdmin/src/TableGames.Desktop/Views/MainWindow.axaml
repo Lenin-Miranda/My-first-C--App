@@ -1,0 +1,117 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TableGames.Desktop.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="980" d:DesignHeight="600"
+        x:Class="TableGames.Desktop.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Width="980" Height="600"
+        Title="Table Game Admin Dashboard">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <DockPanel Margin="16">
+
+        <!-- Encabezado -->
+        <StackPanel DockPanel.Dock="Top" Spacing="2" Margin="0,0,0,12">
+            <TextBlock Text="🎲 Table Game Admin Dashboard"
+                       FontSize="22" FontWeight="Bold"/>
+            <TextBlock Text="Desktop estilo WPF (Avalonia · MVVM) consumiendo REST API + SQLite"
+                       Opacity="0.6" FontSize="12"/>
+        </StackPanel>
+
+        <!-- Barra de acciones -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,10">
+            <Button Content="🔄 Refrescar" Command="{Binding LoadCommand}"/>
+            <Button Content="➕ Nuevo" Command="{Binding NewCommand}"/>
+        </StackPanel>
+
+        <!-- Barra de estado -->
+        <Border DockPanel.Dock="Bottom" Background="#22808080" CornerRadius="4"
+                Padding="10,6" Margin="0,12,0,0">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="●" Foreground="#4CAF50"
+                           IsVisible="{Binding !IsBusy}" VerticalAlignment="Center"/>
+                <TextBlock Text="⏳" IsVisible="{Binding IsBusy}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding StatusMessage}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Cuerpo: tabla (izquierda) + formulario (derecha) -->
+        <Grid ColumnDefinitions="*,16,300">
+
+            <!-- Tabla de juegos -->
+            <Border Grid.Column="0" BorderBrush="#33808080" BorderThickness="1" CornerRadius="6">
+                <DataGrid ItemsSource="{Binding Games}"
+                          SelectedItem="{Binding SelectedGame}"
+                          IsReadOnly="True"
+                          GridLinesVisibility="Horizontal"
+                          AutoGenerateColumns="False"
+                          CanUserResizeColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Categoría" Binding="{Binding Category}" Width="120"/>
+                        <DataGridTextColumn Header="Mín."
+                                            Binding="{Binding MinPlayers}" Width="55"/>
+                        <DataGridTextColumn Header="Máx."
+                                            Binding="{Binding MaxPlayers}" Width="55"/>
+                        <DataGridTextColumn Header="$/hora"
+                                            Binding="{Binding PricePerHour, StringFormat='{}{0:C2}'}" Width="90"/>
+                        <DataGridCheckBoxColumn Header="Disp." Binding="{Binding IsAvailable}" Width="60"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+
+            <!-- Formulario de edición -->
+            <Border Grid.Column="2" BorderBrush="#33808080" BorderThickness="1"
+                    CornerRadius="6" Padding="14">
+                <StackPanel Spacing="10">
+                    <TextBlock Text="{Binding FormTitle}" FontSize="16" FontWeight="SemiBold"/>
+
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Nombre" Opacity="0.7" FontSize="12"/>
+                        <TextBox Text="{Binding FormName}" Watermark="Ej. Catan"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Categoría" Opacity="0.7" FontSize="12"/>
+                        <TextBox Text="{Binding FormCategory}" Watermark="Ej. Estrategia"/>
+                    </StackPanel>
+
+                    <Grid ColumnDefinitions="*,10,*">
+                        <StackPanel Grid.Column="0" Spacing="3">
+                            <TextBlock Text="Mín. jugadores" Opacity="0.7" FontSize="12"/>
+                            <NumericUpDown Value="{Binding FormMinPlayers}" Minimum="1" Maximum="100"
+                                           Increment="1" FormatString="0"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Spacing="3">
+                            <TextBlock Text="Máx. jugadores" Opacity="0.7" FontSize="12"/>
+                            <NumericUpDown Value="{Binding FormMaxPlayers}" Minimum="1" Maximum="100"
+                                           Increment="1" FormatString="0"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Precio por hora" Opacity="0.7" FontSize="12"/>
+                        <NumericUpDown Value="{Binding FormPricePerHour}" Minimum="0" Maximum="10000"
+                                       Increment="0.5" FormatString="0.00"/>
+                    </StackPanel>
+
+                    <CheckBox Content="Disponible para reservar"
+                              IsChecked="{Binding FormIsAvailable}"/>
+
+                    <Button Content="💾 Guardar" Command="{Binding SaveCommand}"
+                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                            Classes="accent"/>
+                    <Button Content="🗑 Eliminar seleccionado" Command="{Binding DeleteCommand}"
+                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

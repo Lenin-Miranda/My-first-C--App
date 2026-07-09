@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TableGames.Api/TableGames.Api.csproj" />
+    <Project Path="src/TableGames.Desktop/TableGames.Desktop.csproj" />
+  </Folder>
+</Solution>
